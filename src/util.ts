@@ -47,6 +47,10 @@ export function stripFrontmatter(text: string) {
   return text.replace(/^---[\s\S]+?\r?\n---(?:\r?\n\s*|$)/, '');
 }
 
+export function stripHeaders(text: string) {
+  return text.replace(/^\s*#.*$/gm, '');
+}
+
 export function sanitizeBakedContent(text: string) {
   return stripBlockId(stripFrontmatter(text));
 }
@@ -57,7 +61,7 @@ export function extractSubpath(
   cache: CachedMetadata
 ) {
   let text = content;
-
+  
   if (subpathResult.type === 'block' && subpathResult.list && cache.listItems) {
     const targetItem = subpathResult.list;
     const ancestors = new Set<number>([targetItem.position.start.line]);
@@ -87,6 +91,8 @@ export function extractSubpath(
     const end = subpathResult.end ? subpathResult.end.offset : content.length;
     text = stripBlockId(content.substring(start, end));
   }
+
+  text = stripHeaders(text);
 
   return text;
 }
