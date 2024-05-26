@@ -1,5 +1,5 @@
 # Fork
-This fork simply adds a toggle to include headers or not.
+This fork simply excludes headers from the bake.
 
 ---
 
