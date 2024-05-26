@@ -48,7 +48,7 @@ export function stripFrontmatter(text: string) {
 }
 
 export function stripHeaders(text: string) {
-  return text.replace(/^\s*#.*$/gm, '');
+  return text.replace(/^\s*#.*(\r?\n)?/gm, '');
 }
 
 export function sanitizeBakedContent(text: string) {
