@@ -1,3 +1,8 @@
+# Fork
+This fork simply adds a toggle to include headers or not.
+
+---
+
 <p align="center">
   <img align="center" width="175" src="https://github.com/mgmeyers/obsidian-easy-bake/blob/master/assets/logo.png?raw=true">
 </p>
